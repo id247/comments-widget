@@ -1,8 +1,8 @@
 {
-  "name": "kagocel",
+  "name": "widget-comments",
   "version": "1.0.0",
   "description": "",
-  "cdn": "https://ad.csdnevnik.ru/special/staging/kagocel-2016/",
+  "cdn": "https://ad.csdnevnik.ru/special/staging/widget-comments/",
   "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {

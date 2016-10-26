@@ -3,7 +3,6 @@ export const OAuthOptions = {
 	authUrl: 'https://login.dnevnik.ru/oauth2',
 	grantUrl: 'https://api.dnevnik.ru/v1/authorizations',
 	scope: 'Avatar,FullName,Roles',	
-	clientId: '8939a3386fe54c33af6d544c01155d46',
 	redirectUrl: 'https://ad.dnevnik.ru/promo/oauth2',
 }
 

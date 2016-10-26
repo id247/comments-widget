@@ -43,8 +43,10 @@ const options = {
 	redirect_uri: isMobile ? window.location.href.replace(/\#.*/g, '') : OAuthOptions.redirectUrl,
 };
 
+const appKey = document.getElementById('comments').getAttribute('data-appKey');
+
 hello.init({
-	[OAuthOptions.provider] : OAuthOptions.clientId,
+	[OAuthOptions.provider] : appKey,
 },options);
 
 const dnevnik = hello(OAuthOptions.provider);

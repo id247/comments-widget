@@ -26,7 +26,7 @@ export const OAuthOptions = {
 	provider: 'stagingComments',
 	authUrl: 'https://login.staging.dnevnik.ru/oauth2',
 	grantUrl: 'https://api.staging.dnevnik.ru/v1/authorizations',
-	scope: 'Avatar,FullName,Birthday,Age,Roles,Schools,Organizations,EduGroups,Lessons,Marks,EduWorks,Relatives,Files,Contacts,Friends,Groups,Networks,Events,Wall,Messages,EmailAddress,Sex,SocialEntityMembership',	
+	scope: 'Avatar,FullName,Roles',	
 	clientId: '5123975fe9eb415390fb7aa316a15e4e',
 	redirectUrl: '//localhost:9000/oauth.html',
 }

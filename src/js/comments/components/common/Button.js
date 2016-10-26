@@ -4,10 +4,10 @@ const Button = (props) => (
 	<button 
 		className={( 
 						(props.mixClass ? props.mixClass : '')						
-						+ ' button'
-						+ (props.size ? ' button--' + props.size : '') 
-						+ (props.color ? ' button--' + props.color : '') 
-						+ (props.block ? ' button--block' : '') 
+						+ ' comments-button'
+						+ (props.size ? ' comments-button--' + props.size : '') 
+						+ (props.color ? ' comments-button--' + props.color : '') 
+						+ (props.block ? ' comments-button--block' : '') 
 					)}
 		type={props.type}
 		onClick={props.onClickHandler}

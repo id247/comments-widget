@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Button from '../../components/common/Button';
+import Textarea from '../../components/common/Textarea';
 
 import FormQuote 		from '../../components/comments/FormQuote';
 import FormPostAdded 	from '../../components/comments/FormPostAdded';
@@ -75,14 +76,14 @@ class Form extends React.Component {
 
 				<div className="comments-form__textarea-placeholder">
 
-					<textarea 
+					<Textarea
 						name="message" 
 						cols="30" 
 						rows={7}
 						className="comments-form__textarea"
 						placeholder="Текст комментария"
 						value={props.commentsForm.message}
-						onChange={this._messageChangeHandler()}
+						onChangeHandler={this._messageChangeHandler()}
 					/>
 
 				</div>
