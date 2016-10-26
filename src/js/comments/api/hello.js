@@ -58,7 +58,7 @@ function getToken(){
 		return false;
 	}
 
-	if (OAuthOptions.clientId !== response.client_id){
+	if (appKey !== response.client_id){
 		return false;
 	}
 
