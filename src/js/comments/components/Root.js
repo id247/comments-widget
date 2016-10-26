@@ -26,10 +26,6 @@ class Root extends React.Component {
 		return (
 			<Provider store={this.props.store}>		
 				<section className="comments">	
-				
-					<h3 className="comments__title">
-						Комментарии
-					</h3>
 		
 					<Router />
 					

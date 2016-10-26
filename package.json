@@ -1,8 +1,8 @@
 {
-  "name": "widget-comments",
+  "name": "megafon-comments",
   "version": "1.0.0",
   "description": "",
-  "cdn": "https://ad.csdnevnik.ru/special/staging/widget-comments/",
+  "cdn": "https://ad.csdnevnik.ru/special/staging/megafon/widget-comments/",
   "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {

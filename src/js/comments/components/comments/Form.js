@@ -71,17 +71,17 @@ class Form extends React.Component {
 				ref="form"
 			>	
 				<h4 className="comments-form__title">
-					Оставьте свой комментарий
+					Задайте свой вопрос специалисту
 				</h4>
 
 				<div className="comments-form__textarea-placeholder">
 
 					<Textarea
 						name="message" 
-						cols="30" 
+						cols={30} 
 						rows={7}
 						className="comments-form__textarea"
-						placeholder="Текст комментария"
+						placeholder="Ваш вопрос..."
 						value={props.commentsForm.message}
 						onChangeHandler={this._messageChangeHandler()}
 					/>
@@ -113,7 +113,7 @@ class Form extends React.Component {
 					</div>
 
 					{(
-						false 
+						true 
 						? 	<FormAnon 
 								checked={props.commentsForm.anon}
 								onChangeHandler={this._anonChangeHandler()}

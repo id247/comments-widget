@@ -71,7 +71,7 @@ class Comment extends React.Component {
 								value.user.id === props.profile.id_str
 							);
 
-		let likesText = 'Мне нравится';
+		let likesText = 'Хороший вопрос';
 
 		//console.log(comment.UserId.toString());
 		//console.log(comment.UserId);

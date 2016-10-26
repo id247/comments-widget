@@ -10,7 +10,7 @@ const CommentInfo = (props) => {
 			{' '}
 			{props.user.lastName} 
 			{' '}
-			{(props.isAdmin ? '(Администратор)' : '')}</span>
+			{(props.isAdmin ? '(Эксперт)' : '')}</span>
 			{' / '}
 			<span className="comment__time">{date}</span>
 

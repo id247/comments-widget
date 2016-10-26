@@ -1,7 +1,7 @@
 $comments-blue: #d7eaf8;
 $comments-grey: #f5f5f5;
 
-$comments-form-bg: #eee;
+$comments-form-bg: $green;
 
 $comments-text: #262626;
 $comments-text-grey: #a2a2a2;
@@ -144,7 +144,7 @@ $comments-text-grey: #a2a2a2;
 
 	&__avatar-placeholder{
 		float: left;
-		border-radius: 8px;
+		border-radius: 50%;
 		width: 45px;
 		height: 45px;
 		overflow: hidden;
@@ -186,6 +186,10 @@ $comments-text-grey: #a2a2a2;
 		height: 40px;
 		display: inline-block;
 		animation: spin .6s infinite linear;
+
+		path{
+			fill: $green;
+		}
 	}
 
 	&--visible{
@@ -238,7 +242,8 @@ $comments-text-grey: #a2a2a2;
 .comments-form{
 	background: $comments-form-bg;
 	padding: 20px;
-	border-radius: 8px;
+	border-radius: 0px;
+	color: #fff;
 
 	@media( max-width: 768px){
 		padding: 15px;
@@ -379,14 +384,14 @@ $comments-text-grey: #a2a2a2;
 .comment{
 	background: $comments-grey;
 	padding: 20px;
-	border-radius: 8px;
+	border-radius: 0px;
 
 	@media( max-width: 768px){
 		padding: 15px;
 	}
 
 	&--super{
-		background: lighten($comments-form-bg, 8%);
+		background: #d2dbe6;
 	}
 
 	&--quoted{
@@ -416,7 +421,7 @@ $comments-text-grey: #a2a2a2;
 
 	&__avatar-placeholder{
 		float: left;
-		border-radius: 8px;
+		border-radius: 50%;
 		width: 65px;
 		height: 65px;
 		overflow: hidden;
