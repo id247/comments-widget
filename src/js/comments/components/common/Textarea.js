@@ -20,8 +20,8 @@ Textarea.propTypes = {
 	onChangeHandler: React.PropTypes.func,
 
 	name: React.PropTypes.string.isRequired,
-	cols: React.PropTypes.string,
-	rows: React.PropTypes.string,
+	cols: React.PropTypes.number,
+	rows: React.PropTypes.number,
 };
 
 export default Textarea;

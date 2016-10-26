@@ -1,5 +1,10 @@
 <div style="max-width: 1000px; padding: 10px; margin: auto;">
-
-	<div id="comments" data-appKey="5123975fe9eb415390fb7aa316a15e4e">Загрузка комментариев...</div><!-- /#comments -->
+	
+	@@if (server === "local"){
+	<div id="comments" data-appKey="5123975fe9eb415390fb7aa316a15e4e">Загрузка комментариев...</div>
+	}
+	@@if (server === "dnevnik"){
+	<div id="comments" data-appKey="8939a3386fe54c33af6d544c01155d46">Загрузка комментариев...</div>
+	}
 
 </div> <!-- /.comments-section__wrap -->

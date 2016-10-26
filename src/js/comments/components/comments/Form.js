@@ -78,7 +78,7 @@ class Form extends React.Component {
 
 					<Textarea
 						name="message" 
-						cols="30" 
+						cols={30} 
 						rows={7}
 						className="comments-form__textarea"
 						placeholder="Текст комментария"

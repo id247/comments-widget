@@ -1,5 +1,4 @@
 export const OAuthOptions = {
-	provider: 'mosregComments',
 	authUrl: 'https://login.staging.dnevnik.ru/oauth2',
 	grantUrl: 'https://api.staging.dnevnik.ru/v1/authorizations',
 	scope: 'Avatar,FullName,Roles',	

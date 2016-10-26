@@ -1,5 +1,4 @@
 export const OAuthOptions = {
-	provider: 'dnevnikComments',
 	authUrl: 'https://login.dnevnik.ru/oauth2',
 	grantUrl: 'https://api.dnevnik.ru/v1/authorizations',
 	scope: 'Avatar,FullName,Roles',	

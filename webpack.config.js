@@ -33,6 +33,7 @@ const resolve = {
 	extentions: ['', '.js'],
 	alias: {
 		appSettings: appSettings,
+		'react-redux': path.join(__dirname, '/node_modules/react-redux/dist/react-redux.min'),
 	}
 };
 
@@ -77,6 +78,10 @@ const plugins = {
 			warnings: false
 		}
 	}),
+	promise: new webpack.ProvidePlugin({
+        'Promise': 'es6-promise', // Thanks Aaron (https://gist.github.com/Couto/b29676dd1ab8714a818f#gistcomment-1584602)
+        'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+    }),
 };
 
 const commentsName = 'comments-' + server;
@@ -110,7 +115,8 @@ const config = {
 			]
 		},
 		plugins: [
-			new webpack.HotModuleReplacementPlugin()
+			new webpack.HotModuleReplacementPlugin(),
+			plugins.promise,
 		],
 	},
 
@@ -118,7 +124,6 @@ const config = {
 		cache: true,
 		entry: {
 			[commentsName]: [
-				//'babel-polyfill', 
 				'whatwg-fetch',
 				'./src/js/comments',
 			],
@@ -142,6 +147,7 @@ const config = {
 		plugins: [  
 			//plugins.env,
 			//plugins.uglifyJs,
+			plugins.promise,
 		]
 	},
 
@@ -149,7 +155,6 @@ const config = {
 		cache: true,
 		entry: {
 			[commentsName]: [
-				//'babel-polyfill', 
 				'whatwg-fetch',
 				'./src/js/comments',
 			],
@@ -171,6 +176,7 @@ const config = {
 		},
 		plugins: [  
 			plugins.env,
+			plugins.promise,
 			plugins.uglifyJs,
 		]
 	}

@@ -15,9 +15,13 @@ const isMobile = (function() {
 	}
 })();
 
+
+const appKey = document.getElementById('comments').getAttribute('data-appKey');
+const provider = 'comments' + appKey.substr(0, 5);
+
 hello.init({
-	[OAuthOptions.provider]: {
-		name: OAuthOptions.provider,
+	[provider]: {
+		name: provider,
 
 		oauth: {
 			version: 2,
@@ -43,16 +47,17 @@ const options = {
 	redirect_uri: isMobile ? window.location.href.replace(/\#.*/g, '') : OAuthOptions.redirectUrl,
 };
 
-const appKey = document.getElementById('comments').getAttribute('data-appKey');
 
 hello.init({
-	[OAuthOptions.provider] : appKey,
+	[provider] : appKey,
 },options);
 
-const dnevnik = hello(OAuthOptions.provider);
+const dnevnik = hello(provider);
 
 function getToken(){
 	const response = dnevnik && dnevnik.getAuthResponse();
+
+	console.log('response', response);
 
 	if (!response){
 		return false;
