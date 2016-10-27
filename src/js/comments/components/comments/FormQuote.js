@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import Button from '../../components/common/Button';
 
@@ -8,6 +7,7 @@ import CommentQuoted from '../../components/comments/CommentQuoted';
 import * as commentsFormActions from '../../actions/comments-form';
 
 const FormQuote = (props) => {
+
 	if (!props.quote){
 		return false;
 	}
@@ -27,7 +27,7 @@ const FormQuote = (props) => {
 						mixClass="comments-form-quote__button"
 						color="comments"
 						size="s"
-						onClickHandler={props.deleteQuote}
+						onClickHandler={props.deleteQuoteHandler}
 					>
 						&times; Отменить цитирование
 					</Button>
@@ -45,16 +45,13 @@ const FormQuote = (props) => {
 	)
 };
 
-const mapStateToProps = (state, ownProps) => ({
-	quote: state.commentsForm.quote,
-});
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
-	deleteQuote: () => dispatch(commentsFormActions.deleteQuote()),
-});
 
 FormQuote.propTypes = {
-//	mixClass: React.PropTypes.string,
+	quote:  React.PropTypes.oneOfType([
+    	React.PropTypes.bool,
+    	React.PropTypes.object,
+    ]),
+	deleteQuoteHandler: React.PropTypes.func.isRequired,
 //	Array: React.PropTypes.array.isRequired,
 //	Bool: React.PropTypes.bool.isRequired,
 //	Func: React.PropTypes.func.isRequired,
@@ -64,4 +61,4 @@ FormQuote.propTypes = {
 //	Symbol: React.PropTypes.symbol.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormQuote);
+export default FormQuote;

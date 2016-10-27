@@ -132,7 +132,7 @@ class Form extends React.Component {
 
 const mapStateToProps = (state, ownProps) => ({
 	user: state.user,
-	quote: state.comments.quote,
+	quote: state.commentsForm.quote,
 	commentsForm: state.commentsForm,
 	label: state.comments.label,
 });
