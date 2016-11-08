@@ -13,6 +13,7 @@ export const PromoOptions = {
 	url: 'https://ad.dnevnik.ru/promo/sportik-parents',
 	server: 'https://dnevnik.ru',
 	cdn: 'https://ad.csdnevnik.ru/special/staging/sportik-landing/',
+	anonAvatar: 'https://static.dnevnik.ru/images/avatars/user/a.m.jpg',
 }
 
 export const CommentsOptions = {	
@@ -21,5 +22,5 @@ export const CommentsOptions = {
 		'1000005031742',
 		'1000004986365',
 	],
-	anonAvatar: 'https://static.dnevnik.ru/images/avatars/user/a.m.jpg',
+	
 }

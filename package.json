@@ -44,6 +44,7 @@
     "gulp-util": "latest",
     "gulp-watch": "latest",
     "gulp.spritesmith": "latest",
+    "hellojs": "^1.14.0",
     "html-entities": "^1.2.0",
     "imports-loader": "^0.6.5",
     "js-cookie": "^2.1.2",

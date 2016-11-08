@@ -2,6 +2,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 //import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
+import CommentsSettings from '../api/settings';
+
 import * as asyncActions from '../actions/async';
 
 import Router 			from '../components/Router';
@@ -28,7 +30,7 @@ class Root extends React.Component {
 				<section className="comments">	
 				
 					<h3 className="comments__title">
-						Комментарии
+						{CommentsSettings.getSettings().commentsTitle}
 					</h3>
 		
 					<Router />

@@ -5,7 +5,6 @@ import { HTMLdecode } from '../../helpers/escape';
 
 import { CommentsOptions }		from 'appSettings';
 
-
 import Button 					from '../../components/common/Button';
 
 import CommentQuoted 			from '../../components/comments/CommentQuoted';

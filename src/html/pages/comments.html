@@ -1,10 +1,15 @@
 <div style="max-width: 1000px; padding: 10px; margin: auto;">
 	
-	@@if (server === "local"){
-	<div id="comments" data-appKey="5123975fe9eb415390fb7aa316a15e4e">Загрузка комментариев...</div>
-	}
-	@@if (server === "dnevnik"){
-	<div id="comments" data-appKey="8939a3386fe54c33af6d544c01155d46">Загрузка комментариев...</div>
-	}
+	<div id="dnevnik-comments">Загрузка комментариев...</div>
+
+	<script src="http://localhost:3000/assets/js/comments-local.min.js"></script>
+	
+	<script>
+		DnevnikComments.init({
+			apiKey: '5123975fe9eb415390fb7aa316a15e4e',
+			pageSize: 15,
+			commentsTitle: 'Комментарии',
+		});
+	</script>
 
 </div> <!-- /.comments-section__wrap -->

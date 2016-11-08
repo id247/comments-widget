@@ -3,7 +3,7 @@ import OAuth from '../api/hello';
 
 import { HTMLencode, HTMLdecode } from '../helpers/escape';
  
-import { CommentsOptions } from 'appSettings';
+import { PromoOptions } from 'appSettings';
 
 import * as visual from '../helpers/visual.js';
 
@@ -240,9 +240,9 @@ export function commentAdded() {
 	}
 }
 
-export function getComments() {
+export function getComments({ pageSize } = {}) {
 
-	console.log('get comments');
+	console.log('get comments', pageSize);
 
 	return (dispatch, getState) => {
 		dispatch(loadingActions.loadingShow());	
@@ -256,7 +256,7 @@ export function getComments() {
 
 		const countersPageSize = 100;
 
-		return API.getKeysFromDBdesc(label, pageNumber, CommentsOptions.pageSize)
+		return API.getKeysFromDBdesc(label, pageNumber, pageSize)
 		.then( res => {
 			comments = res;
 			return API.getCoutersFromDBdesc(label, 1, countersPageSize); //fist request to get counters total count
@@ -513,7 +513,7 @@ export function commentsFormSubmit() {
 		const { profile } = state.user;
 
 		let user;
-		const anonAvatar = CommentsOptions.anonAvatar;
+		const anonAvatar = PromoOptions.anonAvatar;
 
 		if (!anon){
 			user = {

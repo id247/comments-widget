@@ -1,4 +1,5 @@
 import { OAuthOptions, APIoptions, PromoOptions } from 'appSettings';
+import hello from 'hellojs';
 
 const isMobile = (function() { 
 	if( navigator.userAgent.match(/Android/i)
@@ -15,44 +16,48 @@ const isMobile = (function() {
 	}
 })();
 
+let dnevnik;
+let appKey;
 
-const appKey = document.getElementById('comments').getAttribute('data-appKey');
-const provider = 'comments' + appKey.substr(0, 5);
+function init(o){
 
-hello.init({
-	[provider]: {
-		name: provider,
+	appKey = o.apiKey;
+	const provider = 'comments' + appKey.substr(0, 5);
 
-		oauth: {
-			version: 2,
-			auth: OAuthOptions.authUrl,
-			grant: OAuthOptions.grantUrl,
-		},
+	hello.init({
+		[provider]: {
+			name: provider,
 
-		// Refresh the access_token once expired
-		refresh: true,
+			oauth: {
+				version: 2,
+				auth: OAuthOptions.authUrl,
+				grant: OAuthOptions.grantUrl,
+			},
 
-		scope: {
-			'basic': OAuthOptions.scope,
-		},
+			// Refresh the access_token once expired
+			refresh: true,
 
-		scope_delim: ' ',
+			scope: {
+				'basic': OAuthOptions.scope,
+			},
 
-		base: APIoptions.base,
-	}
-});
+			scope_delim: ' ',
 
-const options = {
-	display: isMobile ? 'page' : 'popup',
-	redirect_uri: isMobile ? window.location.href.replace(/\#.*/g, '') : OAuthOptions.redirectUrl,
-};
+			base: APIoptions.base,
+		}
+	});
 
+	const options = {
+		display: isMobile ? 'page' : 'popup',
+		redirect_uri: isMobile ? window.location.href.replace(/\#.*/g, '') : OAuthOptions.redirectUrl,
+	};
 
-hello.init({
-	[provider] : appKey,
-},options);
+	hello.init({
+		[provider] : appKey,
+	},options);
 
-const dnevnik = hello(provider);
+	dnevnik = hello(provider);
+}
 
 function getToken(){
 	const response = dnevnik && dnevnik.getAuthResponse();
@@ -71,6 +76,7 @@ function getToken(){
 }
 
 export default {
+	init: (o) => init(o),
 	login: () => dnevnik.login(),
 	logout: () => dnevnik.logout(),
 	getToken: getToken,
