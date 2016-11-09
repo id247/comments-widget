@@ -9,10 +9,7 @@ import Main 			from '../components/pages/Main';
 class Router extends React.Component {
 
 	render(){
-
 		const { page } = this.props;
-
-		console.log(page);
 
 		switch(page){
 			case '/login':

@@ -1,14 +1,36 @@
 <div style="max-width: 1000px; padding: 10px; margin: auto;">
 	
 	<div id="dnevnik-comments">Загрузка комментариев...</div>
-
-	<script src="http://localhost:3000/assets/js/comments-local.min.js"></script>
 	
+	@@if (server === "dnevnik"){
+	<script src="assets/js/comments-dnevnik.min.js"></script>
+	}
+	@@if (server === "mosreg"){
+	<script src="assets/js/comments-mosreg.min.js"></script>
+	}	
+	@@if (server === "staging"){
+	<script src="assets/js/comments-staging.min.js"></script>
+	}	
+	@@if (server === "local"){
+	<script src="http://localhost:3000/assets/js/comments-local.min.js"></script>
+	}
+
 	<script>
 		DnevnikComments.init({
-			apiKey: '5123975fe9eb415390fb7aa316a15e4e',
-			pageSize: 5,
+			apiKey: '@@apiKey',
+
 			commentsTitle: 'Комментарии',
+			commentsFormTitle: 'Оставьте свой комментарий', 
+			commentsFormTextareaPlaceholder: 'Текст комментария',
+			pageSize: 15,
+			anonAvatar: 'https://static.dnevnik.ru/images/avatars/user/a.m.jpg',
+			adminIds: [
+				'11',
+			],
+			adminTitle: 'Администратор',
+			anonimsAllowed: true,
+			likeText: 'Мне нравится',
+			likeTextQuoted: 'Мне нравится',
 		});
 	</script>
 

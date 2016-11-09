@@ -396,7 +396,7 @@ $comments-text-grey: #a2a2a2;
 	}
 
 	&--super{
-		background: lighten($comments-form-bg, 8%);
+		background: darken($comments-form-bg, 4%);
 	}
 
 	&--quoted{

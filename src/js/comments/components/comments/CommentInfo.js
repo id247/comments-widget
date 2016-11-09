@@ -28,7 +28,7 @@ const CommentInfo = (props) => {
 					)
 				}
 				{' '}
-				{(props.isAdmin ? '(Администратор)' : '')}
+				{(props.isAdmin && props.adminTitle ? '(' + props.adminTitle + ')' : '')}
 			</span>
 			{' / '}
 			<span className="comment__time">{date}</span>
@@ -41,6 +41,7 @@ CommentInfo.propTypes = {
 	mixClass: React.PropTypes.string,
 	user: React.PropTypes.object,
 	isAdmin: React.PropTypes.bool,
+	adminTitle: React.PropTypes.string,
 	comment: React.PropTypes.oneOfType([
     	React.PropTypes.bool,
     	React.PropTypes.object,

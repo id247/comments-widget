@@ -61,8 +61,6 @@ function init(o){
 function getToken(){
 	const response = dnevnik && dnevnik.getAuthResponse();
 
-	console.log('response', response);
-
 	if (!response){
 		return false;
 	}

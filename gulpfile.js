@@ -101,7 +101,14 @@ gulp.task('html', function(callback){
 			'mosreg',
 			'staging',
 		],
-	}
+	};
+
+	const apiKeys = {
+		local: '5123975fe9eb415390fb7aa316a15e4e',
+		dnevnik: '8939a3386fe54c33af6d544c01155d46',
+		mosreg: 'd8e249d704ec4820bfb3036e01cc7d8e',
+		staging: '5123975fe9eb415390fb7aa316a15e4e',
+	};
 
 	const currentServers = servers[devMode];
 	
@@ -140,14 +147,11 @@ gulp.task('html', function(callback){
 			basepath: '@file',
 			context: {
 				server: server,
-				role: false,
-				doktorName: 'Цельс',
-				bgClick: 'https://gderu.hit.gemius.pl/lshitredir/id=NDVQe81U5z1SAAeq0TS2zn14HwEGQq8T1eq3nO99mVz.07/fastid=euaruvwbdztzrdkqeuitzelbuznw/stparam=xairorftsx/url=http://www.kagocel.ru/promo/?utm_source=dnevnik.ru&utm_medium=&utm_campaign=01.09.2016_31.10.2016_BackgroundBonus-&utm_term=BackgroundBonus&utm_content=1472478538',
+				apiKey: apiKeys[server],
 			},
 			indent: true
 		}))
 		.on('error', $.notify.onError())
-		.pipe($.if(devMode === 'production', $.htmlmin({collapseWhitespace: true})))
 		.pipe(gulp.dest(newDestFolder))
 		.on('end', callback);
 	};

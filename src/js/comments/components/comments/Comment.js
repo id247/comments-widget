@@ -90,6 +90,7 @@ class Comment extends React.Component {
 						comment={comment}
 						user={value.user}
 						isAdmin={isAdmin}
+						adminTitle={props.adminTitle}
 					/>
 
 					{
@@ -156,6 +157,7 @@ const mapStateToProps = (state, ownProps) => ({
 	adminIds: state.comments.settings.adminIds,
 	likeText: state.comments.settings.likeText,
 	likeTextQuoted: state.comments.settings.likeTextQuoted,
+	adminTitle: state.comments.settings.adminTitle,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

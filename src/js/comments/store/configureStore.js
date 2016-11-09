@@ -17,8 +17,6 @@ const configureStore = (commentsSettings) => {
 		},
 	};
 
-	console.log(persistedState);
-
 	const store = createStore(	rootReducer, 
 								persistedState,
 								applyMiddleware(

@@ -7,6 +7,7 @@ export default {
 	adminIds: [
 		'11',
 	],
+	adminTitle: 'Администратор',
 	anonimsAllowed: true,
 	likeText: 'Мне нравится',
 	likeTextQuoted: 'Мне нравится',

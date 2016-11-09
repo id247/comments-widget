@@ -21,7 +21,6 @@ class CommentsList extends React.Component {
 						<Comment 
 							mixClass="comments-list__item"
 							comment={comment}
-							label={props.label}
 							key={'comment' + comment.Id}
 						/>
 
@@ -37,8 +36,6 @@ class CommentsList extends React.Component {
 
 const mapStateToProps = (state, ownProps) => ({
 	comments: state.comments.list,
-	label: state.comments.label,
-	pageNumber: state.comments.page,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
