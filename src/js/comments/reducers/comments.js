@@ -24,7 +24,12 @@ export function counters(state = [], action) {
 export function itemsTotalCount(state = 0, action) {
 	switch (action.type) {
 		case actions.COMMENTS_ADD_ITEMS:
-			return  action.payload.comments.Paging.count;
+			try{
+				return action.payload.comments.Paging.count;
+			}catch(e){
+				console.error(e);
+				return state;
+			}
 
 		default:
 			return state;
@@ -63,10 +68,21 @@ export function edit(state = false, action) {
 	}
 }
 
+export function settings(state = false, action) {
+	switch (action.type) {
+		case actions.COMMENTS_SET_SETTINGS:
+			return action.payload;
+			
+		default:
+			return state;
+	}
+}
+
 export const comments = combineReducers({
 	list,
 	counters,
 	itemsTotalCount,
+	settings,
 	page,
 	label,
 	edit,

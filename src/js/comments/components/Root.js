@@ -1,36 +1,22 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-//import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-
-import CommentsSettings from '../api/settings';
-
-import * as asyncActions from '../actions/async';
+import { connect } from 'react-redux';
 
 import Router 			from '../components/Router';
 import Loading 			from '../components/loading/Loading';
 import ErrorMessage 	from '../components/error/ErrorMessage';
 
-// const routes = (
-// 	<Router history={hashHistory}>
-// 		<Route path="/" component={App}>
-// 			<IndexRoute component={Main} />
-// 			<Route path="page/:pageNumber" component={Main} />
-// 		</Route>
-// 		<Route path="/login" component={Login} />
-// 	</Router>
-// );
-// 
-
-
 class Root extends React.Component {
 
 	render() {		
+		const { props } = this;
+
 		return (
 			<Provider store={this.props.store}>		
 				<section className="comments">	
 				
 					<h3 className="comments__title">
-						{CommentsSettings.getSettings().commentsTitle}
+						{props.commentsTitle}
 					</h3>
 		
 					<Router />
@@ -49,5 +35,13 @@ class Root extends React.Component {
 	}
 }
 
-export default Root;
+const mapStateToProps = (state, ownProps) => ({
+	commentsTitle: state.comments.settings.commentsTitle,
+});
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Root);
 

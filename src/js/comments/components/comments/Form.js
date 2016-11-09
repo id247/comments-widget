@@ -71,7 +71,7 @@ class Form extends React.Component {
 				ref="form"
 			>	
 				<h4 className="comments-form__title">
-					Оставьте свой комментарий
+					{props.commentsFormTitle}
 				</h4>
 
 				<div className="comments-form__textarea-placeholder">
@@ -81,7 +81,7 @@ class Form extends React.Component {
 						cols={30} 
 						rows={7}
 						className="comments-form__textarea"
-						placeholder="Текст комментария"
+						placeholder={props.commentsFormTextareaPlaceholder}
 						value={props.commentsForm.message}
 						onChangeHandler={this._messageChangeHandler()}
 					/>
@@ -113,7 +113,7 @@ class Form extends React.Component {
 					</div>
 
 					{(
-						false 
+						props.anonimsAllowed 
 						? 	<FormAnon 
 								checked={props.commentsForm.anon}
 								onChangeHandler={this._anonChangeHandler()}
@@ -134,6 +134,9 @@ const mapStateToProps = (state, ownProps) => ({
 	user: state.user,
 	quote: state.commentsForm.quote,
 	commentsForm: state.commentsForm,
+	commentsFormTitle: state.comments.settings.commentsFormTitle,
+	commentsFormTextareaPlaceholder: state.comments.settings.commentsFormTextareaPlaceholder,
+	anonimsAllowed: state.comments.settings.anonimsAllowed,
 	label: state.comments.label,
 });
 

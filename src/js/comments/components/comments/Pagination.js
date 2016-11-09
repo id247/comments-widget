@@ -14,7 +14,7 @@ const Pagination = (props) => {
 		<div className={( (props.mixClass ? props.mixClass : '') + ' comments-pagination')}>
 
 			<div className="comments-pagination__title">
-				Страницы комментариев:
+				Страницы:
 			</div>
 
 			<ul className="comments-pagination__list">

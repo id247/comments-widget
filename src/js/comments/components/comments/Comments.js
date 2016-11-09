@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import CommentsSettings from '../../api/settings';
-
 import * as commentsActions from '../../actions/comments';
 import * as asyncActions 	from '../../actions/async';
 
@@ -17,7 +15,7 @@ class Comments extends React.Component {
 
 		this._setLabel();
 
-		props.getComments({pageSize: CommentsSettings.getSettings().pageSize});
+		props.getComments();
 	}
 
 	_setLabel(){
@@ -42,13 +40,13 @@ class Comments extends React.Component {
 		const newPageNumber = nextProps.pageNumber ? parseInt(nextProps.pageNumber) : 1;
 
 		if (oldPageNumber !== newPageNumber){
-			props.getComments({pageSize: CommentsSettings.getSettings().pageSize});
+			props.getComments();
 		}
 	}
 
 	render(){
 		const { props } = this;
-		const pagesCount = Math.ceil(props.commentsTotalCount / CommentsSettings.getSettings().pageSize);
+		const pagesCount = Math.ceil(props.commentsTotalCount / props.pageSize);
 		return(
 				
 			<div className="comments__content">
@@ -79,6 +77,7 @@ class Comments extends React.Component {
 
 const mapStateToProps = (state, ownProps) => ({
 	commentsTotalCount: state.comments.itemsTotalCount,
+	pageSize: state.comments.settings.pageSize,
 	pageNumber: state.comments.page,
 });
 

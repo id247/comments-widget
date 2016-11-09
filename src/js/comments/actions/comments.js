@@ -41,3 +41,13 @@ export function setLabel(label) {
 		payload: label
 	}
 }
+
+
+export const COMMENTS_SET_SETTINGS 	= 'COMMENTS_SET_SETTINGS';
+
+export function setSettings(settings) {
+	return {
+		type: COMMENTS_SET_SETTINGS,
+		payload: settings
+	}
+}

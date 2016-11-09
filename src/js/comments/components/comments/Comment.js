@@ -60,17 +60,17 @@ class Comment extends React.Component {
 		}
 
 
-		const isAdmin = (value.user.id !== 0 && CommentsOptions.adminId.indexOf(value.user.id) > -1 );
+		const isAdmin = (value.user.id !== 0 && props.adminIds.indexOf(value.user.id) > -1 );
 		const icanEditComment = 
 							(	
 								value.user.id !== 0 
 								&& 
-								CommentsOptions.adminId.indexOf(props.profile.id_str) > -1 
+								props.adminIds.indexOf(props.profile.id_str) > -1 
 								&&
 								value.user.id === props.profile.id_str
 							);
 
-		let likesText = 'Мне нравится';
+		let likesText = value.quote ? props.likeTextQuoted : props.likeText;
 
 		//console.log(comment.UserId.toString());
 		//console.log(comment.UserId);
@@ -153,6 +153,9 @@ class Comment extends React.Component {
 const mapStateToProps = (state, ownProps) => ({
 	profile: state.user.profile,
 	edit: state.comments.edit,
+	adminIds: state.comments.settings.adminIds,
+	likeText: state.comments.settings.likeText,
+	likeTextQuoted: state.comments.settings.likeTextQuoted,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

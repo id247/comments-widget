@@ -1,5 +1,4 @@
 import { OAuthOptions, APIoptions, PromoOptions } from 'appSettings';
-import hello from 'hellojs';
 
 const isMobile = (function() { 
 	if( navigator.userAgent.match(/Android/i)

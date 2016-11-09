@@ -13,13 +13,6 @@ export const PromoOptions = {
 	url: 'http://localhost:9000/kagocel-2016.html',
 	server: 'https://staging.dnevnik.ru',
 	cdn: 'http://localhost:9000/assets/',
-	anonAvatar: 'https://static.dnevnik.ru/images/avatars/user/a.m.jpg',
 }
 
-export const CommentsOptions = {	
-	pageSize: 5,
-	adminId: [
-		'1000005031742'
-	],
-}
 

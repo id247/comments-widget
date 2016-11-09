@@ -1,7 +1,6 @@
 'use strict';
 
 import OAuth from './api/hello';
-import Settings from './api/settings';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -11,19 +10,17 @@ import Root from './components/Root';
 
 window.DnevnikComments = {
 
-	init: (o = {}) => {
+	init: (commentsSettings = {}) => {
 
 		const comments = document.getElementById('dnevnik-comments');
 
 		if (comments){
 
 			OAuth.init({
-				apiKey: o.apiKey,
+				apiKey: commentsSettings.apiKey,
 			});
-
-			Settings.init(o);
-
-			const store = configureStore(); 
+			
+			const store = configureStore(commentsSettings); 
 			
 			ReactDOM.render(
 				<Root store={store} />,

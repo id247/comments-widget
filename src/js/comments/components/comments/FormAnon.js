@@ -5,18 +5,18 @@ const FormAnon = (props) => (
 
 			<div className="comments-anon__checkbox">
 
-				<label className="checkbox">
+				<label className="comments-anon-checkbox">
 
 					<input 
 						type="checkbox" 
 						name="anon" 
 						value="true" 
-						className="checkbox__input" 
+						className="comments-anon-checkbox__input" 
 						checked={props.checked}
 						onChange={props.onChangeHandler}
 					/>
 
-					<span className="checkbox__text">Отправить анонимно</span>
+					<span className="comments-anon-checkbox__text">Отправить анонимно</span>
 
 				</label>
 

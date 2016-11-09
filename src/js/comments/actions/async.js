@@ -3,8 +3,6 @@ import OAuth from '../api/hello';
 
 import { HTMLencode, HTMLdecode } from '../helpers/escape';
  
-import { PromoOptions } from 'appSettings';
-
 import * as visual from '../helpers/visual.js';
 
 import * as loadingActions 		from '../actions/loading';
@@ -240,11 +238,12 @@ export function commentAdded() {
 	}
 }
 
-export function getComments({ pageSize } = {}) {
-
-	console.log('get comments', pageSize);
+export function getComments() {
 
 	return (dispatch, getState) => {
+
+		const pageSize = getState().comments.settings.pageSize;
+
 		dispatch(loadingActions.loadingShow());	
 
 		const pageNumber = getState().comments ? getState().comments.page : 1;
@@ -271,8 +270,6 @@ export function getComments({ pageSize } = {}) {
 			const pagesCount = Math.ceil(res.Paging.count / countersPageSize);
 			const pageNumbers = Array.from(Array(pagesCount).keys());
 
-			console.log(pageNumbers);
-
 			return getChunkPromises(pageNumbers, 10, (pages) => {
 				console.log(pages);
 				return pages
@@ -283,20 +280,13 @@ export function getComments({ pageSize } = {}) {
 		})
 		.then( results => {
 
-			console.log(results);
-
 			const counters = results.reduce( (prev, res) => {
 				return [...prev, ...res.Counters];
 			}, []);
 
 			const allCounters = [...firstPageCounters, ...counters];
-			
-			console.log(counters);
-			
+					
 			dispatch(loadingActions.loadingHide());
-
-			console.log(comments.Keys);
-			console.log(counters);
 
 			comments.Keys = comments.Keys.map( key => {
 				key.counter = false;
@@ -309,9 +299,12 @@ export function getComments({ pageSize } = {}) {
 
 				return key;
 			});
+			
+			dispatch(commentsActions.addItems({
+				comments: comments, 
+				counters: allCounters
+			}));
 
-			console.log(comments, counters);
-			dispatch(commentsActions.addItems({comments: comments, counters: allCounters}));
 		})
 		.catch( err => { 
 			dispatch(loadingActions.loadingHide());
@@ -513,7 +506,7 @@ export function commentsFormSubmit() {
 		const { profile } = state.user;
 
 		let user;
-		const anonAvatar = PromoOptions.anonAvatar;
+		const anonAvatar = state.comments.settings.anonAvatar;
 
 		if (!anon){
 			user = {

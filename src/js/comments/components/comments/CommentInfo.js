@@ -1,4 +1,5 @@
 import React from 'react';
+import { PromoOptions } from 'appSettings';
 
 const CommentInfo = (props) => {
 	const date = new Date(props.comment.CreatedDate).toLocaleString('ru-RU');
@@ -6,11 +7,29 @@ const CommentInfo = (props) => {
 		<div className="comment__info">
 
 			<span className="comment__name">
-			{props.user.firstName} 
-			{' '}
-			{props.user.lastName} 
-			{' '}
-			{(props.isAdmin ? '(Администратор)' : '')}</span>
+				{
+					props.user.id !== 0
+					?
+					(
+
+					<a href={PromoOptions.server + '/user/user.aspx?user=' + props.user.id} className="comment__name-href">
+						{props.user.firstName} 
+						{' '}
+						{props.user.lastName} 
+					</a>
+					)
+					:
+					(
+					<span>
+						{props.user.firstName} 
+						{' '}
+						{props.user.lastName} 
+					</span>
+					)
+				}
+				{' '}
+				{(props.isAdmin ? '(Администратор)' : '')}
+			</span>
 			{' / '}
 			<span className="comment__time">{date}</span>
 
